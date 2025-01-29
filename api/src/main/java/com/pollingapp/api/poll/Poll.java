@@ -48,4 +48,10 @@ public class Poll {
         this.expiredAt = expiredAt;
         this.options = options;
     }
+
+    public Poll(String title, String description, LocalDateTime expiredAt) {
+        this.title = title;
+        this.description = description;
+        this.expiredAt = expiredAt;
+    }
 }
