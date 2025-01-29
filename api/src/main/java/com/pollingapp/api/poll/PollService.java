@@ -34,7 +34,7 @@ public class PollService {
     }
 
     public void patchPoll(Long id, Poll newPoll) {
- 
+
         pollRepository.findById(id)
                 .map(poll -> {
                     poll.setTitle(newPoll.getTitle() != null ? newPoll.getTitle() : poll.getTitle());

@@ -1,6 +1,5 @@
 package com.pollingapp.api.poll;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

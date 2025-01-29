@@ -1,12 +1,14 @@
 package com.pollingapp.api.poll;
 
 
+import com.pollingapp.api.option.Option;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table
@@ -29,16 +31,21 @@ public class Poll {
     private LocalDateTime createdAt;
     private LocalDateTime expiredAt;
 
-    public Poll(Long id, String title, String description, LocalDateTime expiredAt) {
+    @OneToMany(mappedBy = "poll", cascade = CascadeType.ALL)
+    private List<Option> options;
+
+    public Poll(Long id, String title, String description, LocalDateTime expiredAt, List<Option> options) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.expiredAt = expiredAt;
+        this.options = options;
     }
 
-    public Poll(String title, String description, LocalDateTime expiredAt) {
+    public Poll(String title, String description, LocalDateTime expiredAt, List<Option> options) {
         this.title = title;
         this.description = description;
         this.expiredAt = expiredAt;
+        this.options = options;
     }
 }
